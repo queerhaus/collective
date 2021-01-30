@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "collective",
+    siteUrl: "https://queer.haus",
   },
   plugins: [
     "gatsby-plugin-sass",
