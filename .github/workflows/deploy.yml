@@ -1,0 +1,62 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+      - feature/deploy
+
+env:
+  # Beware! The last part of this image name is global for your user or organization.
+  # This "docker.pkg.github.com/queerhaus/collective/collective" is exactly the same image as
+  # this "docker.pkg.github.com/queerhaus/foobaroo/collective"
+  # Also keep in mind that with open source public github projects, these images can never be deleted.
+  # https://help.github.com/en/packages/publishing-and-managing-packages/deleting-a-package
+  DOCKER_IMAGE: docker.pkg.github.com/queerhaus/collective/collective
+  DOCKER_IMAGE_VERSION: main
+
+jobs:
+
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            build-${{ env.cache-name }}-
+            build-
+
+      - name: Install node modules
+        run: npm install
+
+      - name: Build gatsby site
+        run: npm run build
+
+      - name: Build docker image using previous image as cache
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+          docker pull $DOCKER_IMAGE:$DOCKER_IMAGE_VERSION || true
+          docker build --cache-from $DOCKER_IMAGE:$DOCKER_IMAGE_VERSION --tag $DOCKER_IMAGE:$DOCKER_IMAGE_VERSION .
+          docker push $DOCKER_IMAGE:$DOCKER_IMAGE_VERSION
+
+      - name: Deploy new image on staging server
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p ~/.ssh
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.DEPLOY_PRIVATE_KEY }}"
+          ssh -o StrictHostKeyChecking=no -p 2020 -l deploy sylvia.machine.queer.haus time
