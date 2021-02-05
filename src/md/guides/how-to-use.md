@@ -1,11 +1,12 @@
 ---
 type: "guide"
-id: "platform-overview"
+id: "how-to-use"
+title: "How to use this platform"
 ---
 
 ## How to use this platform
 
-Leaving the the maintstream platforms behind comes with a bit of learning. We are here with guides and tips to help you take this jump into queer technical freedom!
+Leaving the the mainstream platforms behind comes with a bit of learning. We are here with guides and tips to help you take this jump into queer technical freedom!
 
 ### Federation and communities
 
