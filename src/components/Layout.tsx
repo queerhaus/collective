@@ -5,6 +5,8 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import { PAGES } from '../config';
 
+import '../scss/main.scss';
+
 function Layout({ children }) {
 	return (
 		<StaticQuery
@@ -12,7 +14,7 @@ function Layout({ children }) {
 			render={(data) => {
 				const { title, links } = data.site.siteMetadata;
 				return (
-					<div>
+					<div id="body" className="markdown-body">
 						<Navigation title={title} links={PAGES} />
 						<main className="main">{children}</main>
 						<Footer />

@@ -26,10 +26,6 @@ Here all nipples are welcome and can be freely posted with the consent of the pe
 
 Try to be mindful of others: their experience or inexperience, privilege or lack thereof. No Body Police: Bodies are political. No Grammar Police: Language is political. 
 
-> [vincent] It's not very clear why we ask to be mindful of others in this sentence. Maybe we need something more explicit. Then the the following statements sound like they are another description of our guidelines. which is not consistent with talking about how our users post/engage.
-> [barbs] We can probably phrase this better, so more people understand. But rather we should add something about this in our Terms of Service / Rules / Code of conduct?
-> [lally] matches with definition of queer as being understanding of diffenrence
-
 This is no space for hate speech, bullying, trolling, hostility or any of the following: 
 Racism ~ Ageism ~ Sexism ~ Ableism ~ Classism ~ Fatphobia ~ Colourism ~ Classism ~ SWERFS (Sex worker exclusionary radical feminism) ~ Homophobia ~ Biphobia ~ Transphobia ~ TERFS (trans-exclusionary radical feminism)
 

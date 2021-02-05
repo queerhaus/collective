@@ -1,0 +1,26 @@
+@import './markdown-body.scss';
+
+#body {
+	padding: 0 2rem 2rem 2rem;
+}
+
+#navigation {
+	padding: 0.5rem;
+
+	a {
+		color: black;
+		&:hover {
+			color: black;
+		}
+	}
+
+	.title {
+		display: flex;
+		align-items: center;
+
+		.logo {
+			height: 2rem;
+			margin-right: 0.5rem;
+		}
+	}
+}

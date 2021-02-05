@@ -9,6 +9,7 @@ module.exports = {
 		],
 	},
 	flags: {
+		FAST_DEV: true,
 		DEV_SSR: false,
 		PRESERVE_WEBPACK_CACHE: true,
 	},

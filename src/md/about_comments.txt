@@ -1,0 +1,8 @@
+Our comments and edits suggestions can now live on github!!!
+
+# about.md:27
+
+> [vincent] It's not very clear why we ask to be mindful of others in this sentence. Maybe we need something more explicit. Then the the following statements sound like they are another description of our guidelines. which is not consistent with talking about how our users post/engage.
+> [barbs] We can probably phrase this better, so more people understand. But rather we should add something about this in our Terms of Service / Rules / Code of conduct?
+> [lally] matches with definition of queer as being understanding of difference 
+
